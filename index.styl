@@ -1,0 +1,23 @@
+$table-scrolledX
+  border-right-color transparent
+  &:after
+    content ''
+    position absolute
+    top 0
+    left 100%
+    height 100%
+    width 15px
+    box-shadow @width 0 @width (- @width) rgba(black, 0.4) inset
+
+table.-scrollX
+  tbody
+    transform translate(0, 0)
+    th
+      position relative
+      z-index 10
+  tbody th:last-of-type
+    @extend $table-scrolledX
+  for i in (1..5)
+    &.-th-{i}
+      thead tr:first-child th:nth-child({i})
+        @extend $table-scrolledX

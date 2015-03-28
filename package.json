@@ -1,0 +1,20 @@
+{
+  "name": "d-scrollable-table",
+  "description": "Scrollable table with floating thead and first column(s)",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dmapper/d-scrollable-table.git"
+  },
+  "main": "index.js",
+  "engines": {
+    "node": "0.10.x"
+  },
+  "scripts": {
+    "prepublish": "derby-dev-helpers compile -cj",
+    "postpublish": "derby-dev-helpers revert -cj"
+  },
+  "devDependencies": {
+    "derby-dev-helpers": "^0.1.1"
+  }
+}

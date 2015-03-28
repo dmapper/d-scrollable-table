@@ -1,0 +1,11 @@
+.DS_Store
+*.swp
+/node_modules/
+/.idea/
+.sass-cache
+Gemfile.lock
+/tmp/
+*.orig
+
+# Bower installation
+/bower_components/
