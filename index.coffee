@@ -1,6 +1,6 @@
 module.exports = class ScrollableTable
   style: __dirname
-  name: 'scrollable-table'
+  name: 'd-scrollable-table'
 
   scroll: (content) ->
     return unless content?

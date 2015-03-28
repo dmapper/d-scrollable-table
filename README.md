@@ -4,9 +4,13 @@
 
 ## Usage
 
+```js
+app.component( require('d-scrollable-table') );
+```
+
 ```html
 <div style="overflow: auto" on-scroll="scrollable.scroll($element)">
-  <view is="scrollable-table" as="scrollable"></view>
+  <view is="d-scrollable-table" as="scrollable"></view>
   <table>
   
     <tbody>
