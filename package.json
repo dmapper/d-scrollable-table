@@ -1,6 +1,6 @@
 {
   "name": "d-scrollable-table",
-  "description": "Scrollable table with floating thead and first column(s)",
+  "description": "Scrollable table with fixed (floating) thead and N first column(s)",
   "version": "0.1.0",
   "repository": {
     "type": "git",
@@ -10,6 +10,15 @@
   "engines": {
     "node": "0.10.x"
   },
+  "author": {
+    "name": "Pavel Zhukov",
+    "email": "cray0000@gmail.com",
+    "url": "https://github.com/cray0000"
+  },
+  "keywords": [
+    "derby",
+    "derbyjs"
+  ],
   "scripts": {
     "prepublish": "derby-dev-helpers compile -cj",
     "postpublish": "derby-dev-helpers revert -cj"

@@ -1,6 +1,6 @@
 # d-scrollable-table
 
-> Scrollable table with floating thead and first column(s)
+> Scrollable table with fixed (floating) thead and N first column(s)
 
 ## Usage
 
