@@ -8,6 +8,10 @@
 app.component( require('d-scrollable-table') );
 ```
 
+There are 2 ways to set up scroll handling:
+
+### 1. (preferred) Bind to container's scroll event
+
 ```html
 <div style="overflow: auto" on-scroll="scrollable.scroll($element)">
   <view is="d-scrollable-table" as="scrollable"></view>
@@ -52,6 +56,16 @@ app.component( require('d-scrollable-table') );
     
   </table>
 </div>
+```
+
+### 2. Bind to the table itself
+
+```html
+<view is="d-scrollable-table" as="scrollable" 
+      on-create="scrollable.scrollParent($controller.table)"></view>
+<table as='table'>
+  <!-- ... -->
+</table>
 ```
 
 ## Licence

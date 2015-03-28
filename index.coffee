@@ -2,6 +2,9 @@ module.exports = class ScrollableTable
   style: __dirname
   name: 'd-scrollable-table'
 
+  scrollParent: (table) ->
+    @dom.on 'scroll', table.parentNode, @scroll.bind(@, table.parentNode)
+
   scroll: (content) ->
     return unless content?
     return unless table = content.querySelector('table')
