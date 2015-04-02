@@ -68,6 +68,18 @@ There are 2 ways to set up scroll handling:
 </table>
 ```
 
+## Options
+
+- `hiddenClass` specifies the class name of hidden `<tr>`s.
+    It's used in `<th>`-search algorithm that determines
+    the amount of columns to make float.
+    By default it's `u-hidden`, so all `<tr>`s with this class
+    will be omitted.
+    
+- `update` is any variable that you can pass to listen for
+    its changes and force update the table (useful when your
+    columns may change dynamically)
+
 ## Licence
 
 MIT
