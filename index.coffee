@@ -29,9 +29,8 @@ module.exports = class ScrollableTable
     {scrollTop} = @content
     @table.classList.toggle '-scrollY', !!scrollTop
 
-    for node in @table.querySelectorAll('thead')
-      for transform in ['webkitTransform', 'msTransform', 'transform']
-        node.style[transform] = "translateY(#{ scrollTop }px)"
+    for node in @table.querySelectorAll('.table-scrollY, thead')
+      @_addTransform node, 'translateY', "translateY(#{ scrollTop }px)"
 
   _scrollX: (@scrollLeft, @cols = 0, resetRestThead) ->
     {scrollLeft} = @content
@@ -42,12 +41,22 @@ module.exports = class ScrollableTable
 
     if @cols > 0
       cells = @table.querySelectorAll \
-          "tbody th, thead tr:first-child th:nth-child(-n+#{ @cols })"
+          ".table-scrollX, tbody th, thead tr:first-child th:nth-child(-n+#{ @cols })"
       for cell in cells
-        for transform in ['webkitTransform', 'msTransform', 'transform']
-          cell.style[transform] = "translateX(#{ scrollLeft }px)"
+        @_addTransform cell, 'translateX', "translateX(#{ scrollLeft }px)"
 
     @_resetRestThead() if resetRestThead
+
+  _addTransform: (node, type, value) ->
+    regex = /// #{ type }\([^\)]*\) ///
+    for transform in ['webkitTransform', 'msTransform', 'transform']
+      if (node.style[transform] || '').trim()
+        if regex.test node.style[transform]
+          node.style[transform] = node.style[transform].replace regex, value
+        else
+          node.style[transform] += ' ' + value
+      else
+        node.style[transform] = value
 
   _resetRestThead: ->
     cells = @table.querySelectorAll \
