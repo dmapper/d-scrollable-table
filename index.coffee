@@ -41,7 +41,7 @@ module.exports = class ScrollableTable
 
     if @cols > 0
       cells = @table.querySelectorAll \
-          ".table-scrollX, tbody th, thead tr:first-child th:nth-child(-n+#{ @cols })"
+          ".table-scrollX, tbody th, thead tr:first-child th:nth-child(-n+#{ @cols }), thead tr.-fixed-scroll th:nth-child(-n+#{ @cols })"
       for cell in cells
         @_addTransform cell, 'translateX', "translateX(#{ scrollLeft }px)"
 
@@ -60,7 +60,7 @@ module.exports = class ScrollableTable
 
   _resetRestThead: ->
     cells = @table.querySelectorAll \
-        "thead tr:first-child th:nth-child(n+#{ @cols + 1 })"
+        "thead tr:first-child th:nth-child(n+#{ @cols + 1 }), thead tr.-fixed-scroll th:nth-child(n+#{ @cols + 1 })"
     for cell in cells
       for transform in ['webkitTransform', 'msTransform', 'transform']
         cell.style[transform] = ''
