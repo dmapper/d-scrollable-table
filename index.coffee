@@ -22,6 +22,7 @@ module.exports = class ScrollableTable
     cols = @_getCols()
     if scrollTop isnt @scrollTop or force
       @_scrollY scrollTop
+    return unless cols
     if scrollLeft isnt @scrollLeft or cols isnt @cols or force
       @_scrollX scrollLeft, cols, (cols isnt @cols)
 
@@ -68,5 +69,6 @@ module.exports = class ScrollableTable
   _getCols: ->
     hiddenClass = @model.get('hiddenClass')
     headCell = @table.querySelector "tbody tr:not(.#{ hiddenClass }) th"
+    return unless headCell
     headCells = headCell.parentNode.querySelectorAll('th').length
     headCells
