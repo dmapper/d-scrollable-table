@@ -1,3 +1,5 @@
+MAX_FIXED_COLUMNS = 6
+
 module.exports = class ScrollableTable
   style: __dirname
   name: 'd-scrollable-table'
@@ -36,7 +38,7 @@ module.exports = class ScrollableTable
   _scrollX: (@scrollLeft, @cols = 0, resetRestThead) ->
     {scrollLeft} = @content
 
-    for i in [1..5]
+    for i in [1 .. MAX_FIXED_COLUMNS]
       @table.classList.toggle "-th-#{i}", (i is @cols)
     @table.classList.toggle '-scrollX', !!scrollLeft
 

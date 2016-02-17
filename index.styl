@@ -1,3 +1,5 @@
+$table-maxFixedColumns ?= 6
+
 $table-scrolledX
   border-right-color transparent
   &:after
@@ -17,7 +19,10 @@ table.-scrollX
       z-index 10
   tbody th:last-of-type
     @extend $table-scrolledX
-  for i in (1..5)
+  for i in (1..$table-maxFixedColumns)
     &.-th-{i}
-      thead tr:first-child th:nth-child({i})
-        @extend $table-scrolledX
+      thead tr:first-child
+        th:nth-child({i})
+          @extend $table-scrolledX
+        th:nth-child(-n+{i})
+          z-index 1
