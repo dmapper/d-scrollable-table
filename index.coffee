@@ -6,6 +6,7 @@ module.exports = class ScrollableTable
 
   init: ->
     @model.setNull 'hiddenClass', 'u-hidden'
+    @updateEveryTime = @model.get 'updateEveryTime'
 
   create: ->
     @model.on 'change', 'update.**', =>
@@ -25,7 +26,7 @@ module.exports = class ScrollableTable
     if scrollTop isnt @scrollTop or force
       @_scrollY scrollTop
     return unless cols
-    if scrollLeft isnt @scrollLeft or cols isnt @cols or force
+    if @updateEveryTime or (scrollLeft isnt @scrollLeft or cols isnt @cols or force)
       @_scrollX scrollLeft, cols, (cols isnt @cols)
 
   _scrollY: (@scrollTop) ->
